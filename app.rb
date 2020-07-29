@@ -11,4 +11,5 @@ get '/' do
 end
 
 class Client < ActiveRecord::Base
+end
 
