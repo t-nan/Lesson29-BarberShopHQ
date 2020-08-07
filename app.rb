@@ -23,6 +23,7 @@ get '/' do
 	erb :index
 end
 
+
 get '/visit' do
 	erb :visit
 end
@@ -39,4 +40,19 @@ post '/visit' do
  Client.find_or_create_by(name: "#{@username}",phone: "#{@phone}",datestamp: "#{@datetime}",barber: "#{@barber}",color: "#{@color}")
  
 	erb "<h2>Спасибо,вы записались.</h2>"
+end
+
+
+get '/contacts' do
+	erb :contacts
+end
+
+post '/contacts' do
+
+	@username = params[:username]
+	@phone = params[:phone]
+	
+ Contact.find_or_create_by(name: "#{@username}",phone: "#{@phone}")
+ 
+	erb "<h2>Контакты сохранены.</h2>"
 end
