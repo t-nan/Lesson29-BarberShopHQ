@@ -30,14 +30,8 @@ end
 
 post '/visit' do
 
-	@username = params[:username]
-	@phone = params[:phone]
-	@datetime = params[:datetime]
-	@barber = params[:barber]
-	@color = params[:color]
-
-
- Client.find_or_create_by(name: "#{@username}",phone: "#{@phone}",datestamp: "#{@datetime}",barber: "#{@barber}",color: "#{@color}")
+  c = Client.new params[:client]
+  c.save
  
 	erb "<h2>Спасибо,вы записались.</h2>"
 end
