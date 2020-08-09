@@ -48,16 +48,6 @@ post '/visit' do
 end
 
 
-get '/contacts' do
-	erb :contacts
-end
-
-post '/contacts' do
-
-	@username = params[:username]
-	@phone = params[:phone]
-	
- Contact.find_or_create_by(name: "#{@username}",phone: "#{@phone}")
- 
-	erb "<h2>Контакты сохранены.</h2>"
+get '/barber/:id' do
+	erb :barber
 end
